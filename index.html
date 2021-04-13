@@ -5,13 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="files/logo 2.png"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Bate-Papo UOL</title>
 </head>
 <body>
+    <header>
+        <span><img src="files/logo 2.png" alt="Logo Bate-Papo UOL"></span>
+        <span><ion-icon name="people"></ion-icon></span>
+    </header>
 
+    <main>
+        <div class="enter_leave">
+            (00:00:00) João entra na sala...
+        </div>
+        <div class="messenge">
+            (00:00:00) João entra na sala...
+        </div>
+        <div class="privateMessenge">
+            (00:00:00) João entra na sala...
+        </div>
+    </main>
 
+    <aside>
+        <div class="sidebar">
+            <p class="title">Escolha um contato <br>para enviar mensagem:</p> 
+            
+            <div class="contact">
+                <div class="option">
+                    <ion-icon class="sidebarIcon" name="people"></ion-icon>
+                    <!-- <ion-icon name="person-circle"></ion-icon> -->
+                    <p>Todos</p>
+                </div>
+                <div>
+                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                </div>
+            </div>
+            
+            <p class="title">Escolha a visibilidade:</p> 
+            
+            <div class="visibility">
+                <div class="option">
+                    <ion-icon class="sidebarIcon" name="lock-open"></ion-icon>
+                    <p>Público</p>
+                </div>
+                <div>
+                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                </div>
+            </div>
+            <div class="visibility">
+                <div class="option">
+                    <ion-icon class="sidebarIcon" name="lock-closed"></ion-icon>
+                    <p>Reservadamente</p>
+                </div>
+                <div>
+                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                </div>
+            </div>            
+        </div>
+    </aside>
+
+    <footer>
+        <input type="text" value="Escreva aqui..." placeholder="Escreva aqui..." onfocus="this.value='';"/>
+        <span><ion-icon name="paper-plane-outline"></ion-icon></span>
+    </footer>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="scripts/script.js"></script>
