@@ -3,14 +3,82 @@ body{
     font-family: 'Roboto';
 }
 
+section{
+    position: fixed;
+    background-color: #FFF;
+    width: 375px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login{
+    z-index: 3;
+}
+
+.loading{
+    z-index: 2;
+}
+
+section img:first-child{
+    margin-top: 90px;
+    width: 120px;
+    height: 90px;
+    margin-right: 25px;
+}
+
+section img:nth-child(2){
+    margin-top: 80px;
+    margin-bottom: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.name{
+    margin-top: 80px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.name::placeholder{
+    text-align: center;
+    font-size: 16px;
+}
+
+.name:focus{
+    border: 0 none;
+    outline: 0;  
+}
+
+button{
+    height: 45px;
+    width: 80px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 9px;
+    background-color: #e6e6e6;
+    color: #7e7d7d;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:focus{
+    border: 0 none;
+    outline: 0;  
+}
+
 header, footer{
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    max-width: 100%;
-    background-color: #fff;
+    width: 375px;
+    background-color: #FFF;
     z-index: 1;
     left: 0;
     right: 0;
@@ -33,33 +101,39 @@ header ion-icon{
 
 main{
     margin: 100px 0;
-    max-width: 100%;
+    width: 375px;
+    height: auto;
+    position: absolute;
 }
 
-.enter_leave, .messenge, .privateMessenge{
+.enter_left, .message, .privateMessage{
     display: flex;
     align-items: center;
-    height: 40px;
     font-size: 14px;
-    padding: 0 8px; 
+    min-height: 40px;
+    max-width: 375px;
+    height: auto;
     border-radius: 2px;
-    margin-bottom: 4px;   
+    margin-bottom: 4px;  
 }
 
-.enter_leave{
+.enter_left{
     background-color: #dcdcdc;
 }
 
-.messenge{
-    background-color: #fff;
+.message{
+    background-color: #FFF;
 }
 
-.privateMessenge{
+.privateMessage{
     background-color: #FFDEDE;
 }
 
+main p{
+    margin: 0 8px;
+}
+
 aside{
-    display: none;
     position: fixed;
     z-index: 2;
     top: 0;
@@ -68,7 +142,6 @@ aside{
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
 }
-
 .sidebar{
     background-color: #fff;
     width: 259px;
@@ -76,6 +149,18 @@ aside{
     right: 0;
     bottom: 0;
     top: 0;
+    animation-duration: .4s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      width: 0%;
+    }
+  
+    to {
+      width: 259px;
+    }
 }
 
 .title{
@@ -94,6 +179,21 @@ aside{
 .option{
     display: flex;
     align-items: center;
+}
+
+.sidebarContent{
+    animation-duration: 3s;
+    animation-name: fadein;
+}
+
+@keyframes fadein {
+    from {
+      opacity: 0%;
+    }
+  
+    to {
+      opacity: 100%;
+    }
 }
 
 .sidebar .p{
@@ -115,23 +215,33 @@ footer{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
-input::placeholder{
-    color: #000;
-}
-
-input{
+.communication{
     height: 85%;
     width: 70%;
     margin-left: 17px;
     color: #000;
     border: none;
     font-size: 18px;
+}
+
+.communication::placeholder{
+    color: #000;
     font-style: italic;
+}
+
+.communication:focus{
+    border: 0 none;
+    outline: 0;
+    color: #000;
 }
 
 footer ion-icon{
     font-size: 26px;
     margin-right: 24px;
+}
+
+.hidden{
+    display: none;
 }
 
 

@@ -12,66 +12,82 @@
     <title>Bate-Papo UOL</title>
 </head>
 <body>
+    <section class="login">
+        <img src="files/logo 2.png" alt="Logo Bate-Papo UOL">
+        <input class="name" type="text" placeholder="Digite seu nome" onfocus="this.value='';"/>
+        <button onclick="login()">Entrar</button> 
+    </section>
+
+    <section class="loading">
+        <img src="files/logo 2.png" alt="Logo Bate-Papo UOL">
+        <img src="files/loading.gif" alt="">
+        <p>Entrando...</p>
+    </section>
+
     <header>
-        <span><img src="files/logo 2.png" alt="Logo Bate-Papo UOL"></span>
-        <span><ion-icon name="people"></ion-icon></span>
+        <img src="files/logo 2.png" alt="Logo Bate-Papo UOL">
+        <span><ion-icon onclick="activeParticipants()" name="people"></ion-icon></span>
     </header>
 
     <main>
-        <div class="enter_leave">
-            (00:00:00) João entra na sala...
+        <div class="enter_left">
+            <p>(00:00:00) João entra na sala...</p>
         </div>
-        <div class="messenge">
-            (00:00:00) João entra na sala...
+        <div class="message">
+            <p>(00:00:00) João entra na sala...</p>
         </div>
-        <div class="privateMessenge">
-            (00:00:00) João entra na sala...
+        <div class="privateMessage">
+            <p>(00:00:00) João entra na sala...</p>
         </div>
+        
     </main>
 
-    <aside>
+    <aside class="hidden">
         <div class="sidebar">
-            <p class="title">Escolha um contato <br>para enviar mensagem:</p> 
-            
-            <div class="contact">
-                <div class="option">
-                    <ion-icon class="sidebarIcon" name="people"></ion-icon>
-                    <!-- <ion-icon name="person-circle"></ion-icon> -->
-                    <p>Todos</p>
+            <div class="sidebarContent">
+                <p class="title">Escolha um contato <br>para enviar mensagem:</p> 
+                
+                <div class="contact">
+                    <div class="option">
+                        <ion-icon class="sidebarIcon" name="people"></ion-icon>
+                        <!-- <ion-icon name="person-circle"></ion-icon> -->
+                        <p>Todos</p>
+                    </div>
+                    <div>
+                        <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                    </div>
                 </div>
-                <div>
-                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                
+                <p class="title">Escolha a visibilidade:</p> 
+                
+                <div class="visibility">
+                    <div class="option">
+                        <ion-icon class="sidebarIcon" name="lock-open"></ion-icon>
+                        <p>Público</p>
+                    </div>
+                    <div>
+                        <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                    </div>
                 </div>
-            </div>
-            
-            <p class="title">Escolha a visibilidade:</p> 
-            
-            <div class="visibility">
-                <div class="option">
-                    <ion-icon class="sidebarIcon" name="lock-open"></ion-icon>
-                    <p>Público</p>
-                </div>
-                <div>
-                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
-                </div>
-            </div>
-            <div class="visibility">
-                <div class="option">
-                    <ion-icon class="sidebarIcon" name="lock-closed"></ion-icon>
-                    <p>Reservadamente</p>
-                </div>
-                <div>
-                    <ion-icon class="checkIcon" name="checkmark"></ion-icon>
-                </div>
-            </div>            
+                <div class="visibility">
+                    <div class="option">
+                        <ion-icon class="sidebarIcon" name="lock-closed"></ion-icon>
+                        <p>Reservadamente</p>
+                    </div>
+                    <div>
+                        <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+                    </div>
+                </div>        
+            </div>    
         </div>
     </aside>
 
     <footer>
-        <input type="text" value="Escreva aqui..." placeholder="Escreva aqui..." onfocus="this.value='';"/>
+        <input class="communication" type="text" placeholder="Escreva aqui..." onfocus="this.value='';"/>
         <span><ion-icon name="paper-plane-outline"></ion-icon></span>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="scripts/script.js"></script>
 </body>
