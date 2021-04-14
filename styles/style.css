@@ -102,11 +102,12 @@ header ion-icon{
 main{
     margin: 100px 0;
     width: 375px;
-    height: auto;
+    height: 100%;
     position: absolute;
+    overflow: hidden;
 }
 
-.enter_left, .message, .privateMessage{
+.enter, .message, .privateMessage{
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -117,7 +118,7 @@ main{
     margin-bottom: 4px;  
 }
 
-.enter_left{
+.enter{
     background-color: #dcdcdc;
 }
 
