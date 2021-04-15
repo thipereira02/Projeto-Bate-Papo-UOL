@@ -1,4 +1,5 @@
 let user = "";
+let chat = [];
 
 function login(){
     user = document.querySelector(".name").value;
@@ -6,7 +7,6 @@ function login(){
         name: user
     };
     const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants", data);
-    console.log(promise)
     promise.then(loadingPage);
     promise.catch(error);
 }
@@ -21,26 +21,44 @@ function error(){
     promise.catch(error);
 }
 
-function loadingPage(response){
-    const element = document.querySelector(".login") 
+function loadingPage(){
+    const element = document.querySelector(".login"); 
     element.classList.add("hidden");
-    setTimeout(chatPage, 3000);
+    setTimeout(chatPage, 4000);
 }
 
 function chatPage(){
-    const element = document.querySelector(".loading")
+    const element = document.querySelector(".loading");
     element.classList.add("hidden");
-    setInterval(update,5000);    
+    setInterval(signal,5000);
+    setInterval(refresh,3000);
 }
 
-function update(){
+function signal(){
     const data = {
         name: user
     };
     const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status", data);
-    console.log(promise)
 }
 
+function refresh(){
+    const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages");
+    promise.then(searchPreviousMessages);
+}
+
+function searchPreviousMessages(response){
+    chat = response.data;
+    console.log(chat);
+    const oldChat = document.querySelector("main");
+
+    for (let i=0; i<chat.length; i++){
+        oldChat.innerHTML += `
+            <div class="${chat[i].type}">
+                <p><span class="time">(${chat[i].time})&nbsp;</span><span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span><span>${chat[i].text}</span></p>
+            </div>
+        `;   
+    }
+}
 
 
 

@@ -33,6 +33,7 @@ section img:nth-child(2){
     margin-bottom: 40px;
     width: 100px;
     height: 100px;
+    margin-right: 12px;
 }
 
 .name{
@@ -97,6 +98,7 @@ img{
 header ion-icon{
     font-size: 42px;
     margin-right: 24px;
+    cursor: pointer;
 }
 
 main{
@@ -107,7 +109,7 @@ main{
     overflow: hidden;
 }
 
-.enter, .message, .privateMessage{
+.status, .message, .private_message{
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -118,7 +120,7 @@ main{
     margin-bottom: 4px;  
 }
 
-.enter{
+.status{
     background-color: #dcdcdc;
 }
 
@@ -126,12 +128,17 @@ main{
     background-color: #FFF;
 }
 
-.privateMessage{
+.private_message{
     background-color: #FFDEDE;
 }
 
 main p{
     margin: 0 8px;
+    line-height: 16px; 
+}
+
+.time{
+    color: #7e7d7d;
 }
 
 aside{
@@ -239,6 +246,7 @@ footer{
 footer ion-icon{
     font-size: 26px;
     margin-right: 24px;
+    cursor: pointer;
 }
 
 .hidden{

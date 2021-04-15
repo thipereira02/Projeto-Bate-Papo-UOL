@@ -20,7 +20,7 @@
 
     <section class="loading">
         <img src="files/logo 2.png" alt="Logo Bate-Papo UOL">
-        <img src="files/loading.gif" alt="">
+        <img src="files/loading.gif" alt="Loading gif">
         <p>Entrando...</p>
     </section>
 
@@ -30,15 +30,6 @@
     </header>
 
     <main>
-        <div class="enter">
-            <p>(00:00:00) João entra na sala...</p>
-        </div>
-        <div class="message">
-            <p>(00:00:00) João entra na sala...</p>
-        </div>
-        <div class="privateMessage">
-            <p>(00:00:00) João entra na sala...</p>
-        </div>
         
     </main>
 
@@ -93,7 +84,7 @@
 
     <footer>
         <input class="communication" type="text" placeholder="Escreva aqui..." onfocus="this.value='';"/>
-        <span><ion-icon name="paper-plane-outline"></ion-icon></span>
+        <span><ion-icon onclick="sendMessage()" name="paper-plane-outline"></ion-icon></span>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

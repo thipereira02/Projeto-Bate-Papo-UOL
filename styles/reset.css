@@ -57,3 +57,6 @@ a{
 p{
 	font-family: 'Roboto';
 }
+strong{
+	font-weight: bold;
+}
