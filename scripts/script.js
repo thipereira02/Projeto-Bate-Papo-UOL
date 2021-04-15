@@ -52,13 +52,23 @@ function searchPreviousMessages(response){
     const oldChat = document.querySelector("main");
 
     for (let i=0; i<chat.length; i++){
-        oldChat.innerHTML += `
-            <div class="${chat[i].type}">
-                <p><span class="time">(${chat[i].time})&nbsp;</span><span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span><span>${chat[i].text}</span></p>
-            </div>
-        `;   
-    }
+        if (chat[i].type === "status"){
+            oldChat.innerHTML += `
+                <div class="status">
+                    <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong></span> <span>${chat[i].text}</span> </p>
+                </div>
+            `;
+        } else{
+            oldChat.innerHTML += `
+                <div class="${chat[i].type}">
+                    <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span> <span>${chat[i].text}</span> </p>
+                </div>
+            `;  
+        } 
+    };
 }
+
+
 
 
 
