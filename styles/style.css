@@ -21,7 +21,6 @@ section{
     z-index: 2;
     width: 100vw;
     height: 100vh;
-
 }
 
 section img:first-child{
@@ -179,7 +178,7 @@ aside{
     text-align: center;
 }
 
-.contact, .visibility{
+.contact, .contactAll, .visibility{
     display: flex;
     justify-content: space-between;
     margin: 0 15px 10px 15px;
@@ -188,11 +187,13 @@ aside{
 .option{
     display: flex;
     align-items: center;
+    word-break: keep-all;
 }
 
 .sidebarContent{
     animation-duration: 3s;
     animation-name: fadein;
+    overflow-y: scroll;
 }
 
 @keyframes fadein {

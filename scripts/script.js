@@ -32,6 +32,12 @@ function chatPage(){
     element.classList.add("hidden");
     setInterval(signal,5000);
     setInterval(refresh,3000);
+    getParticipantsList();
+}
+
+function getParticipantsList(){
+    const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants");
+    promise.then(loadParticipants);
 }
 
 function signal(){
@@ -48,7 +54,6 @@ function refresh(){
 
 function searchPreviousMessages(response){
     chat = response.data;
-    oldChat = document.querySelector("main");
     renderMessages();  
 }
 
@@ -73,12 +78,15 @@ function renderMessages(){
             if (chat[i].to === user){
                 oldChat.innerHTML += `
                     <div class="private_message">
-                        <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span> <span>${chat[i].text}</span> </p>
+                        <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong> reservadamente para <strong>${chat[i].to}</strong>: </span> <span>${chat[i].text}</span> </p>
                     </div>
                 `;
             }    
         }
     };
+
+    const last = document.querySelector("main div:last-child");
+    last.scrollIntoView();
 }
 
 function sendMessage(){
@@ -103,17 +111,30 @@ function enterSendMessage(element){
     });
 }
 
-
-
-
-
-
-
-
-
-
 function activeParticipants(){
     const element = document.querySelector("aside");
     console.log(element)
     element.classList.remove("hidden")
+}
+
+function loadParticipants(response){
+    participants = response.data;
+    const list = document.querySelector(".participants");
+    list.innerHTML = "";
+
+    for (let i=0; i<participants.length; i++){
+        list.innerHTML += `
+        <div class="contact">
+            <div class="option">
+                <ion-icon class="sidebarIcon" name="person-circle"></ion-icon>
+                <p>${participants[i].name}</p>
+            </div>
+            <div>
+                <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+            </div>
+        </div>        
+        `;
+    }
+
+    setInterval(getParticipantsList,10000);
 }
