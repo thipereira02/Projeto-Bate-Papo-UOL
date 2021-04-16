@@ -48,13 +48,13 @@ function refresh(){
 
 function searchPreviousMessages(response){
     chat = response.data;
-    console.log(chat);
     oldChat = document.querySelector("main");
     renderMessages();  
 }
 
 function renderMessages(){
     const oldChat = document.querySelector("main");
+    oldChat.innerHTML = "";
 
     for (let i=0; i<chat.length; i++){
         if (chat[i].type === "status"){
@@ -96,7 +96,7 @@ function sendMessage(){
 
 function enterSendMessage(element){
     element.addEventListener('keyup', function(e){
-        var key = e.which || e.keyCode;
+        const key = e.which || e.keyCode;
         if (key == 13){
             sendMessage();
         }   
