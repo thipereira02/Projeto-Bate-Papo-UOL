@@ -102,13 +102,11 @@ function sendMessage(){
     document.querySelector(".communication").value = null;
 }
 
-function enterSendMessage(element){
-    element.addEventListener('keyup', function(e){
-        const key = e.which || e.keyCode;
-        if (key == 13){
-            sendMessage();
-        }   
-    });
+function enterSendMessage(e){
+    const key = e.which || e.keyCode;
+    if (key == 13){
+        sendMessage();
+    }       
 }
 
 function activeParticipants(){
@@ -135,6 +133,30 @@ function loadParticipants(response){
         </div>        
         `;
     }
+
+    const option = document.querySelector(".view")
+    option.innerHTML = `
+        <p class="title">Escolha a visibilidade:</p> 
+                        
+        <div class="visibility">
+            <div class="option">
+                <ion-icon class="sidebarIcon" name="lock-open"></ion-icon>
+                <p>Público</p>
+            </div>
+            <div>
+                <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+            </div>
+        </div>
+        <div class="visibility">
+            <div class="option">
+                <ion-icon class="sidebarIcon" name="lock-closed"></ion-icon>
+                <p>Reservadamente</p>
+            </div>
+            <div>
+                <ion-icon class="checkIcon" name="checkmark"></ion-icon>
+            </div>
+        </div>  
+    `;
 
     setInterval(getParticipantsList,10000);
 }
