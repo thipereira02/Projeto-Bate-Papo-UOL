@@ -49,6 +49,11 @@ function refresh(){
 function searchPreviousMessages(response){
     chat = response.data;
     console.log(chat);
+    oldChat = document.querySelector("main");
+    renderMessages();  
+}
+
+function renderMessages(){
     const oldChat = document.querySelector("main");
 
     for (let i=0; i<chat.length; i++){
@@ -58,16 +63,45 @@ function searchPreviousMessages(response){
                     <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong></span> <span>${chat[i].text}</span> </p>
                 </div>
             `;
-        } else{
+        } else if (chat[i].type === "message"){
             oldChat.innerHTML += `
-                <div class="${chat[i].type}">
+                <div class="message">
                     <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span> <span>${chat[i].text}</span> </p>
                 </div>
             `;  
-        } 
+        } else if (chat[i].type === "private_message"){
+            if (chat[i].to === user){
+                oldChat.innerHTML += `
+                    <div class="private_message">
+                        <p> <span class="time">(${chat[i].time})&nbsp;</span> <span><strong>${chat[i].from}</strong> para <strong>${chat[i].to}</strong>: </span> <span>${chat[i].text}</span> </p>
+                    </div>
+                `;
+            }    
+        }
     };
 }
 
+function sendMessage(){
+    const text = document.querySelector(".communication").value;
+    const data = {
+        from: user,
+        to: "Todos",
+        text: text,
+        type: "message"
+    };
+    const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages", data);
+    promise.catch(window.location.reload);
+    document.querySelector(".communication").value = null;
+}
+
+function enterSendMessage(element){
+    element.addEventListener('keyup', function(e){
+        var key = e.which || e.keyCode;
+        if (key == 13){
+            sendMessage();
+        }   
+    });
+}
 
 
 
